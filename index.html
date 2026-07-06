@@ -1,581 +1,6 @@
-index.html
-``html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Visual de Redes Industriais para Automação</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Barra de progresso -->
-    <div class="progress-bar" id="progressBar"></div>
-
-    <!-- Botão para alternar modo claro/escuro -->
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <!-- Cabeçalho -->
-    <header class="header">
-        <div class="container">
-            <h1 class="site-title">Guia Industrial</h1>
-            <p class="site-subtitle">Redes e Protocolos para Automação</p>
-        </div>
-    </header>
-
-    <!-- Caixa de pesquisa -->
-    <div class="search-container">
-        <div class="container">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Pesquisar conteúdo...">
-                <button id="searchClear">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb" id="breadcrumb">
-        <div class="container">
-            <a href="#" class="breadcrumb-link">Home</a>
-            <span id="breadcrumb-current"></span>
-        </div>
-    </nav>
-
-    <!-- Navegação principal -->
-    <nav class="main-nav">
-        <div class="container">
-            <ul class="nav-tabs">
-                <li class="nav-item active" data-tab="cabos">
-                    <i class="fas fa-ethernet"></i>
-                    <span>Cabos Industriais</span>
-                </li>
-                <li class="nav-item" data-tab="topologias">
-                    <i class="fas fa-network-wired"></i>
-                    <span>Topologias</span>
-                </li>
-                <li class="nav-item" data-tab="protocolos">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>Protocolos</span>
-                </li>
-                <li class="nav-item" data-tab="equipamentos">
-                    <i class="fas fa-server"></i>
-                    <span>Equipamentos</span>
-                </li>
-                <li class="nav-item" data-tab="comparacoes">
-                    <i class="fas fa-balance-scale"></i>
-                    <span>Comparações</span>
-                </li>
-                <li class="nav-item" data-tab="quiz">
-                    <i class="fas fa-question-circle"></i>
-                    <span>Quiz</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Conteúdo principal -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Aba 1: Cabos Industriais -->
-            <section id="cabos" class="tab-content active">
-                <h2 class="section-title">Cabos Industriais</h2>
-                <p class="section-description">Explore os principais tipos de cabos utilizados em redes industriais.</p>
-                
-                <div class="cards-container">
-                    <!-- Card Par Trançado -->
-                    <div class="card" data-modal="par-trancado">
-                        <div class="card-icon">
-                            <i class="fas fa-plug"></i>
-                        </div>
-                        <h3 class="card-title">Par Trançado</h3>
-                        <p class="card-description">Cabos com pares de fios trançados para redução de interferência eletromagnética.</p>
-                        <button class="card-button">Saber Mais</button>
-                    </div>
-
-                    <!-- Card Fibra Óptica -->
-                    <div class="card" data-modal="fibra-optica">
-                        <div class="card-icon">
-                            <i class="fas fa-broadcast-tower"></i>
-                        </div>
-                        <h3 class="card-title">Fibra Óptica</h3>
-                        <p class="card-description">Transmissão de dados por pulsos de luz através de filamentos de vidro ou plástico.</p>
-                        <button class="card-button">Saber Mais</button>
-                    </div>
-
-                    <!-- Card Wireless -->
-                    <div class="card" data-modal="wireless">
-                        <div class="card-icon">
-                            <i class="fas fa-wifi"></i>
-                        </div>
-                        <h3 class="card-title">Wireless</h3>
-                        <p class="card-description">Comunicação sem fio utilizando tecnologias como Wi-Fi, Bluetooth e Zigbee.</p>
-                        <button class="card-button">Saber Mais</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Aba 2: Topologias de Rede -->
-            <section id="topologias" class="tab-content">
-                <h2 class="section-title">Topologias de Rede</h2>
-                <p class="section-description">Conheça as principais formas de organização de redes industriais.</p>
-                
-                <div class="topology-buttons">
-                    <button class="topology-btn active" data-topology="estrela">
-                        <i class="fas fa-star"></i>
-                        <span>Layout em Estrela</span>
-                    </button>
-                    <button class="topology-btn" data-topology="barramento">
-                        <i class="fas fa-minus"></i>
-                        <span>Layout em Barramento</span>
-                    </button>
-                </div>
-
-                <div class="topology-content">
-                    <!-- Conteúdo Estrela -->
-                    <div id="estrela" class="topology-details active">
-                        <div class="topology-info">
-                            <h3>Layout em Estrela</h3>
-                            <div class="topology-illustration">
-                                <div class="node-switch">Switch</div>
-                                <div class="node">Dispositivo 1</div>
-                                <div class="node">Dispositivo 2</div>
-                                <div class="node">Dispositivo 3</div>
-                            </div>
-                            <div class="info-columns">
-                                <div class="info-col">
-                                    <h4>Como Funciona</h4>
-                                    <p>Todos os dispositivos conectam-se diretamente a um equipamento central (switch).</p>
-                                    <p>A comunicação passa sempre pelo nó central.</p>
-                                </div>
-                                <div class="info-col">
-                                    <h4>Vantagens</h4>
-                                    <ul>
-                                        <li>Fácil manutenção</li>
-                                        <li>Facilidade para localizar falhas</li>
-                                        <li>Alta confiabilidade</li>
-                                        <li>Boa expansão</li>
-                                    </ul>
-                                </div>
-                                <div class="info-col">
-                                    <h4>Desvantagens</h4>
-                                    <ul>
-                                        <li>Maior quantidade de cabos</li>
-                                        <li>Dependência do switch</li>
-                                        <li>Custo mais elevado</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Conteúdo Barramento -->
-                    <div id="barramento" class="topology-details">
-                        <div class="topology-info">
-                            <h3>Layout em Barramento</h3>
-                            <div class="topology-illustration bus">
-                                <div class="bus-line"></div>
-                                <div class="node">Dispositivo 1</div>
-                                <div class="node">Dispositivo 2</div>
-                                <div class="node">Dispositivo 3</div>
-                            </div>
-                            <div class="info-columns">
-                                <div class="info-col">
-                                    <h4>Como Funciona</h4>
-                                    <p>Todos os dispositivos conectam-se a um cabo principal (barramento).</p>
-                                    <p>Os dados são transmitidos pelo barramento e capturados pelos dispositivos.</p>
-                                </div>
-                                <div class="info-col">
-                                    <h4>Vantagens</h4>
-                                    <ul>
-                                        <li>Baixo custo</li>
-                                        <li>Pouca quantidade de cabos</li>
-                                        <li>Instalação simples</li>
-                                    </ul>
-                                </div>
-                                <div class="info-col">
-                                    <h4>Desvantagens</h4>
-                                    <ul>
-                                        <li>Difícil localizar falhas</li>
-                                        <li>Colisão de dados</li>
-                                        <li>Menor confiabilidade</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Aba 3: Protocolos Industriais -->
-            <section id="protocolos" class="tab-content">
-                <h2 class="section-title">Protocolos Industriais</h2>
-                <p class="section-description">Protocolos de comunicação utilizados em automação industrial.</p>
-                
-                <div class="cards-container">
-                    <!-- PROFINET -->
-                    <div class="protocol-card">
-                        <div class="protocol-header">
-                            <h3>PROFINET</h3>
-                            <span class="protocol-type">Ethernet Industrial</span>
-                        </div>
-                        <div class="protocol-info">
-                            <div class="info-item">
-                                <strong>Fabricantes:</strong> Siemens, Phoenix Contact
-                            </div>
-                            <div class="info-item">
-                                <strong>Velocidade:</strong> Até 1 Gbps
-                            </div>
-                            <div class="info-item">
-                                <strong>Aplicações:</strong> Automação de processos e manufatura
-                            </div>
-                        </div>
-                        <div class="protocol-features">
-                            <div class="advantage">Alta performance</div>
-                            <div class="advantage">Integração com IT</div>
-                            <div class="disadvantage">Custo elevado</div>
-                        </div>
-                    </div>
-
-                    <!-- PROFIBUS -->
-                    <div class="protocol-card">
-                        <div class="protocol-header">
-                            <h3>PROFIBUS</h3>
-                            <span class="protocol-type">Fieldbus</span>
-                        </div>
-                        <div class="protocol-info">
-                            <div class="info-item">
-                                <strong>Fabricantes:</strong> Siemens, ABB
-                            </div>
-                            <div class="info-item">
-                                <strong>Velocidade:</strong> Até 12 Mbps
-                            </div>
-                            <div class="info-item">
-                                <strong>Aplicações:</strong> Automóvel, processos
-                            </div>
-                        </div>
-                        <div class="protocol-features">
-                            <div class="advantage">Amplamente utilizado</div>
-                            <div class="advantage">Robusto</div>
-                            <div class="disadvantage">Velocidade limitada</div>
-                        </div>
-                    </div>
-
-                    <!-- Modbus TCP -->
-                    <div class="protocol-card">
-                        <div class="protocol-header">
-                            <h3>Modbus TCP</h3>
-                            <span class="protocol-type">Ethernet</span>
-                        </div>
-                        <div class="protocol-info">
-                            <div class="info-item">
-                                <strong>Fabricantes:</strong> Diversos
-                            </div>
-                            <div class="info-item">
-                                <strong>Velocidade:</strong> Até 1 Gbps (depende da rede)
-                            </div>
-                            <div class="info-item">
-                                <strong>Aplicações:</strong> Supervisão, SCADA
-                            </div>
-                        </div>
-                        <div class="protocol-features">
-                            <div class="advantage">Simples</div>
-                            <div class="advantage">Aberto</div>
-                            <div class="disadvantage">Sem segurança nativa</div>
-                        </div>
-                    </div>
-
-                    <!-- EtherNet/IP -->
-                    <div class="protocol-card">
-                        <div class="protocol-header">
-                            <h3>EtherNet/IP</h3>
-                            <span class="protocol-type">Ethernet Industrial</span>
-                        </div>
-                        <div class="protocol-info">
-                            <div class="info-item">
-                                <strong>Fabricantes:</strong> Rockwell, Allen-Bradley
-                            </div>
-                            <div class="info-item">
-                                <strong>Velocidade:</strong> Até 1 Gbps
-                            </div>
-                            <div class="info-item">
-                                <strong>Aplicações:</strong> Manufatura discreta
-                            </div>
-                        </div>
-                        <div class="protocol-features">
-                            <div class="advantage">Padrão Ethernet</div>
-                            <div class="advantage">Flexível</div>
-                            <div class="disadvantage">Configuração complexa</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Aba 4: Equipamentos de Rede -->
-            <section id="equipamentos" class="tab-content">
-                <h2 class="section-title">Equipamentos de Rede</h2>
-                <p class="section-description">Componentes essenciais para redes industriais.</p>
-                
-                <div class="cards-container">
-                    <!-- Switch Industrial -->
-                    <div class="equipment-card">
-                        <div class="equipment-icon">
-                            <i class="fas fa-sitemap"></i>
-                        </div>
-                        <h3>Switch Industrial</h3>
-                        <p><strong>Função:</strong> Conectar dispositivos em rede local</p>
-                        <p><strong>Uso:</strong> Distribuição de dados entre CLPs, HMIs, I/O</p>
-                        <p><strong>Curiosidade:</strong> Versões industriais suportam temperaturas extremas e vibração</p>
-                    </div>
-
-                    <!-- Roteador Industrial -->
-                    <div class="equipment-card">
-                        <div class="equipment-icon">
-                            <i class="fas fa-route"></i>
-                        </div>
-                        <h3>Roteador Industrial</h3>
-                        <p><strong>Função:</strong> Interconectar redes diferentes</p>
-                        <p><strong>Uso:</strong> Conexão entre rede da planta e corporativa</p>
-                        <p><strong>Curiosidade:</strong> Possuem recursos de segurança avançados</p>
-                    </div>
-
-                    <!-- Access Point Industrial -->
-                    <div class="equipment-card">
-                        <div class="equipment-icon">
-                            <i class="fas fa-wifi"></i>
-                        </div>
-                        <h3>Access Point Industrial</h3>
-                        <p><strong>Função:</strong> Prover conectividade wireless</p>
-                        <p><strong>Uso:</strong> Dispositivos móveis, áreas de difícil cabeadamento</p>
-                        <p><strong>Curiosidade:</strong> Resistentes a interferência eletromagnética</p>
-                    </div>
-
-                    <!-- Conversor de Fibra -->
-                    <div class="equipment-card">
-                        <div class="equipment-icon">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                        <h3>Conversor de Fibra</h3>
-                        <p><strong>Função:</strong> Converter sinais elétricos em ópticos</p>
-                        <p><strong>Uso:</strong> Extensão de distâncias, isolamento galvânico</p>
-                        <p><strong>Curiosidade:</strong> Permite comunicação a quilômetros de distância</p>
-                    </div>
-
-                    <!-- CLP -->
-                    <div class="equipment-card">
-                        <div class="equipment-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3>CLP</h3>
-                        <p><strong>Função:</strong> Controlar processos industriais</p>
-                        <p><strong>Uso:</strong> Automação de máquinas e processos</p>
-                        <p><strong>Curiosidade:</strong> Programado com linguagem ladder ou texto estruturado</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Aba 5: Comparações -->
-            <section id="comparacoes" class="tab-content">
-                <h2 class="section-title">Comparações</h2>
-                <p class="section-description">Tabelas comparativas entre diferentes tecnologias.</p>
-                
-                <div class="comparison-section">
-                    <h3>Comparação de Cabos</h3>
-                    <div class="table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Característica</th>
-                                    <th>Par Trançado</th>
-                                    <th>Fibra Óptica</th>
-                                    <th>Wireless</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Velocidade</td>
-                                    <td>Até 10 Gbps</td>
-                                    <td>Até 100+ Gbps</td>
-                                    <td>Até 1.3 Gbps (Wi-Fi 6)</td>
-                                </tr>
-                                <tr>
-                                    <td>Distância</td>
-                                    <td>Até 100m</td>
-                                    <td>Até 80km</td>
-                                    <td>Até 100m (indoor)</td>
-                                </tr>
-                                <tr>
-                                    <td>Interferência</td>
-                                    <td>Moderada</td>
-                                    <td>Nula</td>
-                                    <td>Alta</td>
-                                </tr>
-                                <tr>
-                                    <td>Custo</td>
-                                    <td>Baixo</td>
-                                    <td>Alto</td>
-                                    <td>Médio</td>
-                                </tr>
-                                <tr>
-                                    <td>Instalação</td>
-                                    <td>Fácil</td>
-                                    <td>Complexa</td>
-                                    <td>Muito Fácil</td>
-                                </tr>
-                                <tr>
-                                    <td>Aplicação</td>
-                                    <td>Escritórios, plantas</td>
-                                    <td>Longas distâncias</td>
-                                    <td>Mobilidade</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="comparison-section">
-                    <h3>Comparação de Topologias</h3>
-                    <div class="table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Característica</th>
-                                    <th>Estrela</th>
-                                    <th>Barramento</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Custo</td>
-                                    <td>Alto</td>
-                                    <td>Baixo</td>
-                                </tr>
-                                <tr>
-                                    <td>Manutenção</td>
-                                    <td>Fácil</td>
-                                    <td>Difícil</td>
-                                </tr>
-                                <tr>
-                                    <td>Confiabilidade</td>
-                                    <td>Alta</td>
-                                    <td>Baixa</td>
-                                </tr>
-                                <tr>
-                                    <td>Escalabilidade</td>
-                                    <td>Boa</td>
-                                    <td>Limitada</td>
-                                </tr>
-                                <tr>
-                                    <td>Quantidade de Cabos</td>
-                                    <td>Alta</td>
-                                    <td>Baixa</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Aba 6: Quiz -->
-            <section id="quiz" class="tab-content">
-                <h2 class="section-title">Quiz de Redes Industriais</h2>
-                <p class="section-description">Teste seus conhecimentos sobre redes industriais.</p>
-                
-                <div class="quiz-container">
-                    <div class="quiz-intro" id="quizIntro">
-                        <p>Este quiz contém 10 perguntas sobre redes industriais. Boa sorte!</p>
-                        <button class="quiz-start-btn" id="quizStart">Iniciar Quiz</button>
-                    </div>
-                    
-                    <div class="quiz-content" id="quizContent" style="display: none;">
-                        <div class="quiz-progress">
-                            <div class="progress-bar-quiz">
-                                <div class="progress-fill" id="quizProgress"></div>
-                            </div>
-                            <span class="progress-text" id="quizProgressText">Pergunta 1 de 10</span>
-                        </div>
-                        
-                        <div class="quiz-question" id="quizQuestion"></div>
-                        
-                        <div class="quiz-options" id="quizOptions"></div>
-                        
-                        <div class="quiz-feedback" id="quizFeedback"></div>
-                        
-                        <button class="quiz-next-btn" id="quizNext" style="display: none;">Próxima Pergunta</button>
-                    </div>
-                    
-                    <div class="quiz-results" id="quizResults" style="display: none;">
-                        <h3>Resultado do Quiz</h3>
-                        <div class="score-display" id="quizScore"></div>
-                        <p id="quizMessage"></p>
-                        <button class="quiz-restart-btn" id="quizRestart">Refazer Quiz</button>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Modais para os cabos -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="modal">
-            <button class="modal-close" id="modalClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-content" id="modalContent"></div>
-        </div>
-    </div>
-
-    <!-- Botão Voltar ao Topo -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Guia Industrial</h3>
-                    <p>Portal educativo sobre Redes Industriais para Automação.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Desenvolvimento</h4>
-                    <p>Desenvolvido com HTML5, CSS3 e JavaScript puro.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Recursos</h4>
-                    <ul>
-                        <li>Design responsivo</li>
-                        <li>Modo claro/escuro</li>
-                        <li>Animações</li>
-                        <li>Quiz interativo</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Guia Visual de Redes Industriais para Automação</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
-`
-
-style.css
-`css
-/ Variáveis CSS para cores e tamanhos /
+/* Variáveis CSS para cores e tamanhos */
 :root {
-    / Cores modo claro /
+    /* Cores modo claro */
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --accent-color: #e67e22;
@@ -593,7 +18,7 @@ style.css
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/ Modo escuro /
+/* Modo escuro */
 [data-theme="dark"] {
     --text-color: #ecf0f1;
     --bg-color: #1a1a1a;
@@ -604,8 +29,8 @@ style.css
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/ Reset e estilos base /
- {
+/* Reset e estilos base */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -625,7 +50,7 @@ body {
     padding: 0 20px;
 }
 
-/ Barra de progresso /
+/* Barra de progresso */
 .progress-bar {
     position: fixed;
     top: 0;
@@ -637,7 +62,7 @@ body {
     transition: width 0.3s;
 }
 
-/ Botão de tema /
+/* Botão de tema */
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -665,7 +90,7 @@ body {
     color: var(--text-color);
 }
 
-/ Cabeçalho /
+/* Cabeçalho */
 .header {
     background: var(--header-bg);
     color: white;
@@ -685,7 +110,7 @@ body {
     opacity: 0.8;
 }
 
-/ Pesquisa /
+/* Pesquisa */
 .search-container {
     background: var(--card-bg);
     padding: 1rem 0;
@@ -716,6 +141,12 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
 }
 
 .search-box button {
@@ -728,12 +159,17 @@ body {
     color: var(--text-color);
     opacity: 0.7;
     cursor: pointer;
+    display: none;
 }
 
-/ Breadcrumb /
+.search-box button:hover {
+    opacity: 1;
+}
+
+/* Breadcrumb */
 .breadcrumb {
     background: var(--card-bg);
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     margin-bottom: 2rem;
     box-shadow: var(--shadow);
 }
@@ -741,13 +177,14 @@ body {
 .breadcrumb-link {
     color: var(--secondary-color);
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .breadcrumb-link:hover {
     text-decoration: underline;
 }
 
-/ Navegação /
+/* Navegação */
 .main-nav {
     background: var(--card-bg);
     margin-bottom: 2rem;
@@ -755,12 +192,13 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    overflow-x: auto;
 }
 
 .nav-tabs {
     display: flex;
     list-style: none;
-    overflow-x: auto;
+    min-width: max-content;
 }
 
 .nav-item {
@@ -772,6 +210,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--text-color);
 }
 
 .nav-item:hover {
@@ -783,7 +222,7 @@ body {
     color: var(--secondary-color);
 }
 
-/ Conteúdo principal /
+/* Conteúdo principal */
 .tab-content {
     display: none;
     animation: fadeIn 0.5s ease-in;
@@ -805,7 +244,7 @@ body {
     opacity: 0.8;
 }
 
-/ Cards /
+/* Cards */
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -852,18 +291,20 @@ body {
     border-radius: 25px;
     cursor: pointer;
     transition: background 0.3s;
+    font-size: 0.9rem;
 }
 
 .card-button:hover {
     background: var(--primary-color);
 }
 
-/ Topologias /
+/* Topologias */
 .topology-buttons {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .topology-btn {
@@ -876,6 +317,11 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--text-color);
+}
+
+.topology-btn:hover {
+    border-color: var(--secondary-color);
 }
 
 .topology-btn.active {
@@ -900,25 +346,28 @@ body {
     margin: 2rem 0;
     position: relative;
     height: 200px;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .node-switch {
     background: var(--secondary-color);
     color: white;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     border-radius: 8px;
     position: relative;
     z-index: 2;
+    font-weight: 600;
 }
 
 .node {
     background: var(--accent-color);
     color: white;
-    padding: 0.8rem;
+    padding: 0.8rem 1.2rem;
     border-radius: 5px;
-    margin: 0 1rem;
     position: relative;
     z-index: 2;
+    font-weight: 500;
 }
 
 .bus .bus-line {
@@ -931,15 +380,24 @@ body {
     z-index: 1;
 }
 
+.bus {
+    position: relative;
+}
+
+.bus .node {
+    margin: 0 1rem;
+}
+
 .info-columns {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .info-col h4 {
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .info-col ul {
@@ -957,14 +415,21 @@ body {
     color: var(--secondary-color);
     position: absolute;
     left: 0;
+    font-weight: bold;
 }
 
-/ Protocolos /
+/* Protocolos */
 .protocol-card {
     background: var(--card-bg);
     border-radius: 10px;
     padding: 1.5rem;
     box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.protocol-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .protocol-header {
@@ -982,6 +447,7 @@ body {
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .info-item {
@@ -999,1017 +465,29 @@ body {
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .advantage {
-    background: rgba(39, 174, 96, 0.2);
+    background: rgba(39, 174, 96, 0.15);
     color: var(--success-color);
 }
 
 .disadvantage {
-    background: rgba(231, 76, 60, 0.2);
+    background: rgba(231, 76, 60, 0.15);
     color: var(--danger-color);
 }
 
-/ Equipamentos /
+/* Equipamentos */
 .equipment-card {
     background: var(--card-bg);
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
     box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.equipment-icon {
-    font-size: 3rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-}
-
-/ Tabelas /
-.comparison-section {
-    margin-bottom: 3rem;
-}
-
-.table-container {
-    overflow-x: auto;
-}
-
-.comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.comparison-table th,
-.comparison-table td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.comparison-table th {
-    background: var(--secondary-color);
-    color: white;
-    font-weight: 600;
-}
-
-.comparison-table tr:nth-child(even) {
-    background: rgba(0, 0, 0, 0.02);
-}
-
-[data-theme="dark"] .comparison-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.02);
-}
-
-/ Quiz /
-.quiz-container {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.quiz-intro {
-    text-align: center;
-}
-
-.quiz-start-btn {
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s;
-}
-
-.quiz-start-btn:hover {
-    background: var(--primary-color);
-}
-
-.quiz-progress {
-    margin-bottom: 2rem;
-}
-
-.progress-bar-quiz {
-    height: 8px;
-    background: var(--border-color);
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
-    overflow: hidden;
-}
-
-.progress-fill {
-    height: 100%;
-    background: var(--secondary-color);
-    width: 0%;
-    transition: width 0.3s;
-}
-
-.progress-text {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.quiz-question {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.quiz-options {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.quiz-option {
-    background: var(--bg-color);
-    border: 2px solid var(--border-color);
-    padding: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.quiz-option:hover {
-    border-color: var(--secondary-color);
-}
-
-.quiz-option.correct {
-    background: rgba(39, 174, 96, 0.2);
-    border-color: var(--success-color);
-}
-
-.quiz-option.incorrect {
-    background: rgba(231, 76, 60, 0.2);
-    border-color: var(--danger-color);
-}
-
-.quiz-feedback {
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    display: none;
-}
-
-.quiz-feedback.correct {
-    background: rgba(39, 174, 96, 0.2);
-    border-left: 4px solid var(--success-color);
-}
-
-.quiz-feedback.incorrect {
-    background: rgba(231, 76, 60, 0.2);
-    border-left: 4px solid var(--danger-color);
-}
-
-.quiz-next-btn {
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.quiz-next-btn:hover {
-    background: var(--primary-color);
-}
-
-.quiz-results {
-    text-align: center;
-}
-
-.score-display {
-    font-size: 3rem;
-    font-weight: bold;
-    color: var(--secondary-color);
-    margin: 1rem 0;
-}
-
-.quiz-restart-btn {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s;
-}
-
-.quiz-restart-btn:hover {
-    background: var(--warning-color);
-}
-
-/ Modal /
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    animation: fadeIn 0.3s ease-in;
-}
-
-.modal {
-    background: var(--card-bg);
-    border-radius: 10px;
-    max-width: 800px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    animation: slideUp 0.3s ease-out;
-}
-
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-color);
-    z-index: 10;
-}
-
-.modal-content {
-    padding: 2rem;
-}
-
-.modal-section {
-    margin-bottom: 2rem;
-}
-
-.modal-section h3 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 0.5rem;
-}
-
-.modal-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin: 1rem 0;
-}
-
-.feature-item {
-    background: var(--bg-color);
-    padding: 1rem;
-    border-radius: 5px;
-    border-left: 4px solid var(--secondary-color);
-}
-
-.feature-item.advantage {
-    border-left-color: var(--success-color);
-}
-
-.feature-item.disadvantage {
-    border-left-color: var(--danger-color);
-}
-
-/ Botão Voltar ao Topo /
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow);
-    transition: all 0.3s;
-    z-index: 1000;
-}
-
-.back-to-top:hover {
-    background: var(--primary-color);
+.equipment-card:hover {
     transform: translateY(-3px);
-}
-
-/ Rodapé /
-.footer {
-    background: var(--footer-bg);
-    color: white;
-    padding: 3rem 0 1rem;
-    margin-top: 4rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3,
-.footer-section h4 {
-    margin-bottom: 1rem;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section li {
-    padding: 0.3rem 0;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/ Animações /
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { 
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/ Responsividade /
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .site-title {
-        font-size: 2rem;
-    }
-    
-    .nav-tabs {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-    }
-    
-    .nav-item {
-        padding: 1rem;
-    }
-    
-    .cards-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .topology-buttons {
-        flex-direction: column;
-    }
-    
-    .info-columns {
-        grid-template-columns: 1fr;
-    }
-    
-    .theme-toggle {
-        top: 10px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .back-to-top {
-        bottom: 10px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
-        padding: 1.5rem 0;
-    }
-    
-    .section-title {
-        font-size: 1.5rem;
-    }
-    
-    .card {
-        padding: 1.5rem;
-    }
-    
-    .modal-content {
-        padding: 1.5rem;
-    }
-}
-`
-
-script.js
-`javascript
-// Dados para o site
-const siteData = {
-    cabos: {
-        'par-trancado': {
-            titulo: 'Par Trançado',
-            descricao: 'Cabos com pares de fios trançados para redução de interferência eletromagnética.',
-            conteudo: {
-                'O que é': 'Cabos formados por pares de fios entrelaçados que reduzem interferência eletromagnética.',
-                'Como funciona': 'Os sinais elétricos são transmitidos através dos fios, com o trançamento cancelando interferências externas.',
-                'Aplicações': 'Redes Ethernet industriais, comunicação entre CLPs, automação de processos.',
-                'Vantagens': 'Custo acessível, fácil instalação, ampla disponibilidade.',
-                'Desvantagens': 'Suscetível a interferências em ambientes industriais, distância limitada.',
-                'Distância máxima': 'Até 100 metros para Ethernet padrão.',
-                'Velocidade': 'De 10 Mbps a 10 Gbps, dependendo da categoria.',
-                'Curiosidade': 'O trançamento dos fios ajuda a cancelar interferências eletromagnéticas externas.'
-            }
-        },
-        'fibra-optica': {
-            titulo: 'Fibra Óptica',
-            descricao: 'Transmissão de dados por pulsos de luz através de filamentos de vidro ou plástico.',
-            conteudo: {
-                'O que é': 'Cabos que transmitem dados através de pulsos de luz em filamentos de vidro ou plástico.',
-                'Como funciona': 'A luz é modulada para representar dados e transmitida através do núcleo da fibra.',
-                'Aplicações': 'Comunicação de longa distância, ambientes com alta interferência, backbone de redes.',
-                'Vantagens': 'Imune a interferências eletromagnéticas, alta velocidade, longa distância.',
-                'Desvantagens': 'Custo mais elevado, instalação complexa, equipamentos específicos necessários.',
-                'Distância máxima': 'Até 80 km sem repetidores para fibra monomodo.',
-                'Velocidade': 'De 100 Mbps a 100+ Gbps.',
-                'Curiosidade': 'Uma única fibra óptica pode carregar milhões de chamadas telefônicas simultaneamente.'
-            }
-        },
-        'wireless': {
-            titulo: 'Wireless',
-            descricao: 'Comunicação sem fio utilizando tecnologias como Wi-Fi, Bluetooth e Zigbee.',
-            conteudo: {
-                'O que é': 'Comunicação sem fio utilizando ondas de rádio para transmissão de dados.',
-                'Como funciona': 'Dados são modulados em ondas de rádio e transmitidos através do ar.',
-                'Aplicações': 'Dispositivos móveis, áreas de difícil cabeadamento, sistemas de monitoramento.',
-                'Vantagens': 'Mobilidade, fácil instalação, flexibilidade de posicionamento.',
-                'Desvantagens': 'Suscetível a interferências, questões de segurança, largura de banda limitada.',
-                'Distância máxima': 'Até 100 metros indoor, vários km com antenas direcionais.',
-                'Velocidade': 'De 1 Mbps (Bluetooth) a 1.3 Gbps (Wi-Fi 6).',
-                'Curiosidade': 'As redes industriais wireless devem ser planejadas para evitar interferência de maquinários.'
-            }
-        }
-    },
-    quiz: {
-        perguntas: [
-            {
-                pergunta: "Qual cabo é mais resistente a interferências eletromagnéticas?",
-                opcoes: ["Par Trançado", "Fibra Óptica", "Coaxial", "Wireless"],
-                resposta: 1,
-                explicacao: "A fibra óptica é imune a interferências eletromagnéticas pois transmite dados através de luz."
-            },
-            {
-                pergunta: "Qual topologia utiliza um switch central?",
-                opcoes: ["Barramento", "Estrela", "Anel", "Malha"],
-                resposta: 1,
-                explicacao: "A topologia em estrela utiliza um switch ou hub central para conectar todos os dispositivos."
-            },
-            {
-                pergunta: "Qual protocolo é amplamente utilizado pela Siemens?",
-                opcoes: ["Modbus", "PROFINET", "EtherNet/IP", "DeviceNet"],
-                resposta: 1,
-                explicacao: "PROFINET é o protocolo de comunicação industrial desenvolvido e promovido pela Siemens."
-            },
-            {
-                pergunta: "Qual destes é um protocolo que utiliza Ethernet?",
-                opcoes: ["PROFIBUS", "Modbus RTU", "EtherNet/IP", "CANopen"],
-                resposta: 2,
-                explicacao: "EtherNet/IP utiliza a infraestrutura Ethernet padrão para comunicação industrial."
-            },
-            {
-                pergunta: "Qual a distância máxima recomendada para cabo par trançado CAT6?",
-                opcoes: ["50 metros", "100 metros", "200 metros", "500 metros"],
-                resposta: 1,
-                explicacao: "O padrão Ethernet estabelece 100 metros como distância máxima para cabo par trançado."
-            },
-            {
-                pergunta: "Qual equipamento é essencial em uma topologia estrela?",
-                opcoes: ["Roteador", "Switch", "Modem", "Firewall"],
-                resposta: 1,
-                explicacao: "O switch é o componente central que interconecta todos os dispositivos na topologia estrela."
-            },
-            {
-                pergunta: "Qual característica NÃO é vantagem da fibra óptica?",
-                opcoes: ["Imunidade a interferências", "Longa distância", "Baixo custo", "Alta velocidade"],
-                resposta: 2,
-                explicacao: "A fibra óptica possui custo mais elevado comparado a cabos de cobre."
-            },
-            {
-                pergunta: "Qual topologia é mais fácil de expandir?",
-                opcoes: ["Barramento", "Estrela", "Anel", "Todas igualmente"],
-                resposta: 1,
-                explicacao: "A topologia estrela permite fácil expansão adicionando novos dispositivos ao switch central."
-            },
-            {
-                pergunta: "Qual protocolo é baseado no padrão Fieldbus?",
-                opcoes: ["PROFINET", "Modbus TCP", "PROFIBUS", "EtherNet/IP"],
-                resposta: 2,
-                explicacao: "PROFIBUS é um protocolo Fieldbus amplamente utilizado na automação industrial."
-            },
-            {
-                pergunta: "Qual fator NÃO é uma limitação do wireless industrial?",
-                opcoes: ["Interferência", "Segurança", "Velocidade ilimitada", "Alcance limitado"],
-                resposta: 2,
-                explicacao: "As redes wireless industriais têm limitações de velocidade, não sendo ilimitadas."
-            }
-        ]
-    }
-};
-
-// Estado da aplicação
-let estadoApp = {
-    tema: localStorage.getItem('tema') || 'light',
-    abaAtiva: 'cabos',
-    quizAtivo: false,
-    perguntaAtual: 0,
-    pontuacao: 0,
-    respostasQuiz: []
-};
-
-// Inicialização da aplicação
-document.addEventListener('DOMContentLoaded', function() {
-    inicializarTema();
-    inicializarNavegacao();
-    inicializarModais();
-    inicializarQuiz();
-    inicializarScroll();
-    inicializarPesquisa();
-    
-    // Ativar a primeira aba por padrão
-    mostrarAba(estadoApp.abaAtiva);
-});
-
-// Inicializar tema (claro/escuro)
-function inicializarTema() {
-    document.documentElement.setAttribute('data-theme', estadoApp.tema);
-    atualizarIconeTema();
-    
-    // Configurar botão de alternância de tema
-    document.getElementById('themeToggle').addEventListener('click', alternarTema);
-}
-
-function alternarTema() {
-    estadoApp.tema = estadoApp.tema === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', estadoApp.tema);
-    localStorage.setItem('tema', estadoApp.tema);
-    atualizarIconeTema();
-}
-
-function atualizarIconeTema() {
-    const icone = document.querySelector('.theme-toggle i');
-    icone.className = estadoApp.tema === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-}
-
-// Inicializar navegação por abas
-function inicializarNavegacao() {
-    const itensNavegacao = document.querySelectorAll('.nav-item');
-    
-    itensNavegacao.forEach(item => {
-        item.addEventListener('click', function() {
-            const aba = this.getAttribute('data-tab');
-            mostrarAba(aba);
-            atualizarBreadcrumb(aba);
-        });
-    });
-    
-    // Configurar botões de topologia
-    const botoesTopologia = document.querySelectorAll('.topology-btn');
-    botoesTopologia.forEach(botao => {
-        botao.addEventListener('click', function() {
-            const topologia = this.getAttribute('data-topology');
-            mostrarTopologia(topologia);
-        });
-    });
-}
-
-function mostrarAba(aba) {
-    // Remover classe ativa de todas as abas
-    document.querySelectorAll('.tab-content').forEach(aba => {
-        aba.classList.remove('active');
-    });
-    document.querySelectorAll('.nav-item').forEach(item => {
-        item.classList.remove('active');
-    });
-    
-    // Adicionar classe ativa à aba selecionada
-    document.getElementById(aba).classList.add('active');
-    document.querySelector([data-tab="${aba}"]).classList.add('active');
-    
-    estadoApp.abaAtiva = aba;
-    
-    // Rolar para o topo da seção
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function mostrarTopologia(topologia) {
-    // Remover classe ativa de todos os botões e conteúdos
-    document.querySelectorAll('.topology-btn').forEach(botao => {
-        botao.classList.remove('active');
-    });
-    document.querySelectorAll('.topology-details').forEach(detalhe => {
-        detalhe.classList.remove('active');
-    });
-    
-    // Adicionar classe ativa ao botão e conteúdo selecionados
-    document.querySelector([data-topology="${topologia}"]).classList.add('active');
-    document.getElementById(topologia).classList.add('active');
-}
-
-function atualizarBreadcrumb(aba) {
-    const breadcrumb = document.getElementById('breadcrumb-current');
-    const nomesAbas = {
-        'cabos': 'Cabos Industriais',
-        'topologias': 'Topologias de Rede',
-        'protocolos': 'Protocolos Industriais',
-        'equipamentos': 'Equipamentos de Rede',
-        'comparacoes': 'Comparações',
-        'quiz': 'Quiz'
-    };
-    
-    breadcrumb.textContent = ' > ' + nomesAbas[aba];
-}
-
-// Inicializar modais para os cabos
-function inicializarModais() {
-    const cards = document.querySelectorAll('.card[data-modal]');
-    const overlay = document.getElementById('modalOverlay');
-    const modal = document.getElementById('modal');
-    const closeBtn = document.getElementById('modalClose');
-    
-    cards.forEach(card => {
-        card.addEventListener('click', function() {
-            const modalId = this.getAttribute('data-modal');
-            abrirModal(modalId);
-        });
-    });
-    
-    // Fechar modal ao clicar no X
-    closeBtn.addEventListener('click', fecharModal);
-    
-    // Fechar modal ao clicar fora do conteúdo
-    overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) {
-            fecharModal();
-        }
-    });
-    
-    // Fechar modal com tecla ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            fecharModal();
-        }
-    });
-}
-
-function abrirModal(modalId) {
-    const overlay = document.getElementById('modalOverlay');
-    const content = document.getElementById('modalContent');
-    const dados = siteData.cabos[modalId];
-    
-    if (!dados) return;
-    
-    // Construir conteúdo do modal
-    let html = 
-        <h2>${dados.titulo}</h2>
-        <p class="modal-description">${dados.descricao}</p>
-    ;
-    
-    // Adicionar seções do conteúdo
-    for (const [titulo, texto] of Object.entries(dados.conteudo)) {
-        html += 
-            <div class="modal-section">
-                <h3>${titulo}</h3>
-                <p>${texto}</p>
-            </div>
-        ;
-    }
-    
-    // Adicionar ilustração baseada no tipo de cabo
-    html += 
-        <div class="modal-section">
-            <h3>Ilustração</h3>
-            <div class="modal-illustration">
-    ;
-    
-    if (modalId === 'par-trancado') {
-        html += 
-            <div style="text-align: center; margin: 2rem 0;">
-                <div style="display: inline-block; background: #f0f0f0; padding: 2rem; border-radius: 10px;">
-                    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 100px; height: 60px; background: #3498db; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white;">CLP</div>
-                        <div style="width: 3px; height: 60px; background: #ccc;"></div>
-                        <div style="width: 100px; height: 60px; background: #e67e22; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white;">I/O</div>
-                    </div>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Conexão via cabo Par Trançado</p>
-                </div>
-            </div>
-        ;
-    } else if (modalId === 'fibra-optica') {
-        html += 
-            <div style="text-align: center; margin: 2rem 0;">
-                <div style="display: inline-block; background: #f0f0f0; padding: 2rem; border-radius: 10px;">
-                    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 80px; height: 60px; background: #3498db; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white;">Transmissor</div>
-                        <div style="width: 150px; height: 3px; background: linear-gradient(90deg, #ff6b6b, #ffa726);"></div>
-                        <div style="width: 80px; height: 60px; background: #e67e22; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white;">Receptor</div>
-                    </div>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Comunicação via Fibra Óptica</p>
-                </div>
-            </div>
-        ;
-    } else if (modalId === 'wireless') {
-        html += 
-            <div style="text-align: center; margin: 2rem 0;">
-                <div style="display: inline-block; background: #f0f0f0; padding: 2rem; border-radius: 10px;">
-                    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div style="width: 80px; height: 60px; background: #3498db; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white;">AP</div>
-                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                            <div style="width: 60px; height: 60px; background: #e67e22; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">1</div>
-                            <div style="width: 60px; height: 60px; background: #27ae60; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">2</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Comunicação Wireless com Access Point</p>
-                </div>
-            </div>
-        ;
-    }
-    
-    html += </div></div>;
-    
-    content.innerHTML = html;
-    overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Prevenir scroll do body
-}
-
-function fecharModal() {
-    const overlay = document.getElementById('modalOverlay');
-    overlay.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restaurar scroll do body
-}
-
-// Inicializar quiz
-function inicializarQuiz() {
-    const iniciarBtn = document.getElementById('quizStart');
-    const proximaBtn = document.getElementById('quizNext');
-    const reiniciarBtn = document.getElementById('quizRestart');
-    
-    iniciarBtn.addEventListener('click', iniciarQuiz);
-    proximaBtn.addEventListener('click', proximaPergunta);
-    reiniciarBtn.addEventListener('click', reiniciarQuiz);
-}
-
-function iniciarQuiz() {
-    estadoApp.quizAtivo = true;
-    estadoApp.perguntaAtual = 0;
-    estadoApp.pontuacao = 0;
-    estadoApp.respostasQuiz = [];
-    
-    document.getElementById('quizIntro').style.display = 'none';
-    document.getElementById('quizContent').style.display = 'block';
-    document.getElementById('quizResults').style.display = 'none';
-    
-    mostrarPergunta();
-}
-
-function mostrarPergunta() {
-    const pergunta = siteData.quiz.perguntas[estadoApp.perguntaAtual];
-    const perguntaElement = document.getElementById('quizQuestion');
-    const opcoesElement = document.getElementById('quizOptions');
-    const feedbackElement = document.getElementById('quizFeedback');
-    const proximaBtn = document.getElementById('quizNext');
-    const progressoElement = document.getElementById('quizProgress');
-    const textoProgresso = document.getElementById('quizProgressText');
-    
-    // Atualizar progresso
-    const progresso = ((estadoApp.perguntaAtual) / siteData.quiz.perguntas.length)  100;
-    progressoElement.style.width = progresso + '%';
-    textoProgresso.textContent = Pergunta ${estadoApp.perguntaAtual + 1} de ${siteData.quiz.perguntas.length};
-    
-    // Mostrar pergunta
-    perguntaElement.textContent = pergunta.pergunta;
-    
-    // Limpar opções anteriores
-    opcoesElement.innerHTML = '';
-    feedbackElement.style.display = 'none';
-    proximaBtn.style.display = 'none';
-    
-    // Adicionar opções
-    pergunta.opcoes.forEach((opcao, index) => {
-        const opcaoElement = document.createElement('div');
-        opcaoElement.className = 'quiz-option';
-        opcaoElement.textContent = opcao;
-        opcaoElement.addEventListener('click', function() {
-            verificarResposta(index, pergunta.resposta);
-        });
-        opcoesElement.appendChild(opcaoElement);
-    });
-}
-
-function verificarResposta(respostaUsuario, respostaCorreta) {
-    const opcoes = document.querySelectorAll('.quiz-option');
-    const feedbackElement = document.getElementById('quizFeedback');
-    const proximaBtn = document.getElementById('quizNext');
-    const pergunta = siteData.quiz.perguntas[estadoApp.perguntaAtual];
-    
-    // Desativar cliques nas opções
-    opcoes.forEach(opcao => {
-        opcao.style.pointerEvents = 'none';
-    });
-    
-    // Marcar resposta correta e incorreta
-    opcoes[respostaCorreta].classList.add('correct');
-    
-    if (respostaUsuario !== respostaCorreta) {
-        opcoes[respostaUsuario].classList.add('incorrect');
-    } else {
-        estadoApp.pontuacao++;
-    }
-    
-    // Mostrar feedback
-    feedbackElement.textContent = pergunta.explicacao;
-    feedbackElement.className = quiz-feedback ${respostaUsuario === respostaCorreta ? 'correct' : 'incorrect'};
-    feedbackElement.style.display = 'block';
-    
-    // Mostrar botão próxima pergunta
-    proximaBtn.style.display = 'block';
-    
-    // Armazenar resposta
-    estadoApp.respostasQuiz.push({
-        pergunta: pergunta.pergunta,
-        respostaUsuario: respostaUsuario,
-        respostaCorreta: respostaCorreta,
-        correta: respostaUsuario === respostaCorreta
-    });
-}
-
-function proximaPergunta() {
-    estadoApp.perguntaAtual++;
-    
-    if (estadoApp.perguntaAtual < siteData.quiz.perguntas.length) {
-        mostrarPergunta();
-    } else {
-        finalizarQuiz();
-    }
-}
-
-function finalizarQuiz() {
-    document.getElementById('quizContent').style.display = 'none';
-    document.getElementById('quizResults').style.display = 'block';
-    
-    const scoreElement = document.getElementById('quizScore');
-    const messageElement = document.getElementById('quizMessage');
-    
-    scoreElement.textContent = ${estadoApp.pontuacao}/${siteData.quiz.perguntas.length};
-    
-    // Mensagem baseada na pontuação
-    if (estadoApp.pontuacao >= 8) {
-        messageElement.textContent = 'Excelente! Você domina o assunto de redes industriais.';
-    } else if (estadoApp.pontuacao >= 5) {
-        messageElement.textContent = 'Bom trabalho! Você tem um bom conhecimento sobre redes industriais.';
-    } else {
-        messageElement.textContent = 'Continue estudando! Revise o conteúdo para melhorar seu conhecimento.';
-    }
-}
-
-function reiniciarQuiz() {
-    iniciarQuiz();
-}
-
-// Inicializar funcionalidades de scroll
-function inicializarScroll() {
-    // Barra de progresso de leitura
-    window.addEventListener('scroll', atualizarBarraProgresso);
-    
-    // Botão voltar ao topo
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.style.display = 'flex';
-        } else {
-            backToTopBtn.style.display = 'none';
-        }
-    });
-    
-    backToTopBtn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    // Animações ao rolar
-    const observador = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    // Observar elementos para animação
-    document.querySelectorAll('.card, .protocol-card, .equipment-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s, transform 0.5s';
-        observador.observe(el);
-    });
-}
-
-function atualizarBarraProgresso() {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    document.getElementById('progressBar').style.width = scrolled + '%';
-}
-
-// Inicializar funcionalidade de pesquisa
-function inicializarPesquisa() {
-    const searchInput = document.getElementById('searchInput');
-    const searchClear = document.getElementById('searchClear');
-    
-    searchInput.addEventListener('input', function() {
-        const termo = this.value.toLowerCase().trim();
-        
-        if (termo) {
-            searchClear.style.display = 'block';
-            pesquisarConteudo(termo);
-        } else {
-            searchClear.style.display = 'none';
-            // Restaurar conteúdo normal se a pesquisa estiver vazia
-            document.querySelectorAll('.tab-content').forEach(aba => {
-                aba.style.display = aba.classList.contains('active') ? 'block' : 'none';
-            });
-        }
-    });
-    
-    searchClear.addEventListener('click', function() {
-        searchInput.value = '';
-        searchClear.style.display = 'none';
-        // Restaurar conteúdo normal
-        document.querySelectorAll('.tab-content').forEach(aba => {
-            aba.style.display = aba.classList.contains('active') ? 'block' : 'none';
-        });
-    });
-}
-
-function pesquisarConteudo(termo) {
-    // Esconder todas as abas
-    document.querySelectorAll('.tab-content').forEach(aba => {
-        aba.style.display = 'none';
-    });
-    
-    // Mostrar apenas conteúdo relevante
-    const elementosTexto = document.querySelectorAll('h1, h2, h3, h4, p, li, td');
-    let encontrouResultados = false;
-    
-    elementosTexto.forEach(elemento => {
-        const texto = elemento.textContent.toLowerCase();
-        if (texto.includes(termo)) {
-            // Encontrar a aba pai deste elemento
-            let aba = elemento.closest('.tab-content');
-            if (aba) {
-                aba.style.display = 'block';
-                encontrouResultados = true;
-                
-                // Destacar o termo encontrado
-                const html = elemento.innerHTML;
-                const regex = new RegExp(termo, 'gi');
-                elemento.innerHTML = html.replace(regex, match => <mark>${match}</mark>);
-            }
-        }
-    });
-    
-    if (!encontrouResultados) {
-        // Mostrar mensagem de nenhum resultado
-        const mainContent = document.querySelector('.main-content');
-        mainContent.innerHTML = 
-            <div class="container">
-                <div style="text-align: center; padding: 4rem 0;">
-                    <i class="fas fa-search" style="font-size: 4rem; opacity: 0.3; margin-bottom: 1rem;"></i>
-                    <h2>Nenhum resultado encontrado</h2>
-                    <p>Tente usar termos diferentes ou mais específicos.</p>
-                </div>
-            </div>
-        ;
-    }
-}
+    box-shadow: 0 8px 16px rgba
